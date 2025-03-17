@@ -7,6 +7,7 @@ public class MovementVR : MonoBehaviour
     public float speed = 1;
     void Update()
     {
-       transform.position += speed *Time.deltaTime * new Vector3(input.axis.x, 0, input.axis.y);
+        Vector3 direction = Player.instance.hmdTransform.TransformDirection(new Vector3(input.axis.x, 0, input.axis.y));
+       transform.position += speed *Time.deltaTime * Vector3.ProjectOnPlane(direction, Vector3.up); 
     }
 }
