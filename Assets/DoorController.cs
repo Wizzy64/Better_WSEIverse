@@ -1,11 +1,16 @@
 using UnityEngine;
 using System.Collections;
+using Valve.VR; // SteamVR Input
 
 public class DoorController : MonoBehaviour
 {
     [Header("Ustawienia otwierania")]
-    public float openAngle = -90f; // k¹t otwarcia (negatywny obraca drzwi w jedn¹ stronê; zmieñ, jeœli potrzeba)
-    public float openSpeed = 2f;   // szybkoœæ animacji otwierania/zamykania drzwi
+    public float openAngle = -90f; // k¹t otwarcia drzwi
+    public float openSpeed = 2f;   // szybkoœæ animacji
+
+    [Header("SteamVR Input")]
+    public SteamVR_Action_Boolean openDoorAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("PressAButton");
+    public SteamVR_Input_Sources handType = SteamVR_Input_Sources.RightHand; // Prawy kontroler
 
     private bool isOpen = false;
     private Quaternion closedRotation;
@@ -13,9 +18,7 @@ public class DoorController : MonoBehaviour
 
     void Start()
     {
-        // Zapamiêtanie zamkniêtej (domyœlnej) rotacji pivotu
         closedRotation = transform.localRotation;
-        // Obliczenie docelowej rotacji: dodajemy openAngle do bie¿¹cej rotacji w osi Y
         openRotation = Quaternion.Euler(transform.localEulerAngles.x,
                                         transform.localEulerAngles.y + openAngle,
                                         transform.localEulerAngles.z);
@@ -23,8 +26,8 @@ public class DoorController : MonoBehaviour
 
     void Update()
     {
-        // Dla testu u¿ywamy klawisza spacji do prze³¹czania stanu drzwi
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Sprawdzamy, czy przycisk A na prawym kontrolerze zosta³ naciœniêty
+        if (openDoorAction.GetStateDown(handType))
         {
             ToggleDoor();
         }
@@ -40,7 +43,6 @@ public class DoorController : MonoBehaviour
     {
         float t = 0f;
         Quaternion startRotation = transform.localRotation;
-        // Okreœl docelow¹ rotacjê – jeœli drzwi s¹ otwarte, wracamy do zamkniêtej pozycji, inaczej otwieramy
         Quaternion targetRotation = isOpen ? closedRotation : openRotation;
 
         while (t < 1f)
@@ -49,7 +51,6 @@ public class DoorController : MonoBehaviour
             transform.localRotation = Quaternion.Slerp(startRotation, targetRotation, t);
             yield return null;
         }
-        // Zmiana stanu drzwi
         isOpen = !isOpen;
     }
 }

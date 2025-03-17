@@ -113,6 +113,14 @@ namespace Valve.VR
             }
         }
         
+        public virtual SteamVR_Action_Boolean OpenDoor
+        {
+            get
+            {
+                return SteamVR_Actions.default_OpenDoor;
+            }
+        }
+        
         public virtual SteamVR_Action_Vibration Haptic
         {
             get
