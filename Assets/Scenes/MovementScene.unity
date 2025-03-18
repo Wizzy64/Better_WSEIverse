@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8014,34 +8014,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3775803973510166222, guid: c936aa1c44cdf4e448824af1f8f4b36b, type: 3}
---- !u!1 &696138888 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2427698898443328434, guid: c936aa1c44cdf4e448824af1f8f4b36b,
-    type: 3}
-  m_PrefabInstance: {fileID: 749237392}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &696138890
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696138888}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6747523594184271470, guid: c936aa1c44cdf4e448824af1f8f4b36b, type: 3}
 --- !u!1 &696738916 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -643817533372633272, guid: c936aa1c44cdf4e448824af1f8f4b36b,
@@ -9812,10 +9784,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 923047216}
-    - targetCorrespondingSourceObject: {fileID: 2427698898443328434, guid: c936aa1c44cdf4e448824af1f8f4b36b,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 696138890}
     - targetCorrespondingSourceObject: {fileID: 8929783447806673341, guid: c936aa1c44cdf4e448824af1f8f4b36b,
         type: 3}
       insertIndex: -1
@@ -18429,7 +18397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1435925423}
   m_Layer: 9
-  m_Name: Insidewall (1)
+  m_Name: outsidewall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
